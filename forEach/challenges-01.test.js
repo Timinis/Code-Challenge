@@ -68,10 +68,12 @@ const addCurve = arr => {
 
 const greeting = word => {
   // Solution code here...
+  return word.toUpperCase();
 };
 
-const speaker = (message, callback) => {
+const speaker = (message, greeting) => {
   // Solution code here...
+  return greeting(message);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -92,10 +94,16 @@ const speaker = (message, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const addValues = (arr, value) => {
+  arr.push(value);
   // Solution code here...
 };
 
-const addNumbers = (num, arr, times, callback) => {
+const addNumbers = (num, arr, times, addValues) => {
+
+  for (let i = 0; i < times; i++) {
+    addValues(arr, num);
+  }
+  return arr;
   // Solution code here...
 };
 
@@ -114,10 +122,17 @@ const addNumbers = (num, arr, times, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeOne = (num, input) => {
+  if (num % 3 === 2) {
+    input.pop();
+  }
   // Solution code here...
 };
 
-const removeElements = (input, callback) => {
+const removeElements = (input, removeOne) => {
+  for (let i = 0; i < input.length; i++) {
+    removeOne(input[i], input);
+  }
+  return input;
   // Solution code here...
 };
 
@@ -127,8 +142,10 @@ const removeElements = (input, callback) => {
 // Write a function named removeWithForEach that produces the same output as challenge 6, but uses forEach.
 // ------------------------------------------------------------------------------------------------
 
-const removeWithForEach = (input, callback) => {
+const removeWithForEach = (input, removeOne) => {
   // Solution code here...
+  input.forEach(removeOne(input.length, input));
+  return input;
 };
 
 // ------------------------------------------------------------------------------------------------
