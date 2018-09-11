@@ -216,6 +216,16 @@ const createList = availableItems => {
 
 const fizzbuzz = arr => {
   // Solution code here...
+  arr.forEach((element, index) => {
+    if (element % 3 === 0 && element % 5 !== 0) {
+      arr.splice(index, 1, 'Fizz');
+    } else if (element % 5 === 0 && element % 3 !== 0) {
+      arr.splice(index, 1, 'Buzz');
+    } else if (element % 3 === 0 && element % 5 === 0) {
+      arr.splice(index, 1, 'Fizz Buzz');
+    }
+  })
+  return arr;
 };
 
 // ------------------------------------------------------------------------------------------------
