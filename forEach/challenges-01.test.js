@@ -50,6 +50,11 @@ const addBonusPoints = arr => {
 
 const addCurve = arr => {
   // Solution code here...
+  const second = [];
+  for (let i = 0; i < arr.length; i++) {
+    second.push(arr[i] * 1.05);
+  }
+  return second;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -275,12 +280,26 @@ describe('Testing challenge 8', () => {
 });
 
 describe('Testing challenge 9', () => {
-  const inventory = [
-    { name: 'apples', available: true },
-    { name: 'pears', available: true },
-    { name: 'oranges', available: false },
-    { name: 'bananas', available: true },
-    { name: 'blueberries', available: false }
+  const inventory = [{
+      name: 'apples',
+      available: true
+    },
+    {
+      name: 'pears',
+      available: true
+    },
+    {
+      name: 'oranges',
+      available: false
+    },
+    {
+      name: 'bananas',
+      available: true
+    },
+    {
+      name: 'blueberries',
+      available: false
+    }
   ];
 
   test('It should only add the available items to the list', () => {
