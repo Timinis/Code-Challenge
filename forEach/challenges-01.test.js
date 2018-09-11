@@ -50,6 +50,11 @@ const addBonusPoints = arr => {
 
 const addCurve = arr => {
   // Solution code here...
+  const second = [];
+  for (let i = 0; i < arr.length; i++) {
+    second.push(arr[i] * 1.05);
+  }
+  return second;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -63,10 +68,12 @@ const addCurve = arr => {
 
 const greeting = word => {
   // Solution code here...
+  return word.toUpperCase();
 };
 
-const speaker = (message, callback) => {
+const speaker = (message, greeting) => {
   // Solution code here...
+  return greeting(message);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -87,10 +94,16 @@ const speaker = (message, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const addValues = (arr, value) => {
+  arr.push(value);
   // Solution code here...
 };
 
-const addNumbers = (num, arr, times, callback) => {
+const addNumbers = (num, arr, times, addValues) => {
+
+  for (let i = 0; i < times; i++) {
+    addValues(arr, num);
+  }
+  return arr;
   // Solution code here...
 };
 
@@ -109,10 +122,17 @@ const addNumbers = (num, arr, times, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeOne = (num, input) => {
+  if (num % 3 === 2) {
+    input.pop();
+  }
   // Solution code here...
 };
 
-const removeElements = (input, callback) => {
+const removeElements = (input, removeOne) => {
+  for (let i = 0; i < input.length; i++) {
+    removeOne(input[i], input);
+  }
+  return input;
   // Solution code here...
 };
 
@@ -122,8 +142,12 @@ const removeElements = (input, callback) => {
 // Write a function named removeWithForEach that produces the same output as challenge 6, but uses forEach.
 // ------------------------------------------------------------------------------------------------
 
-const removeWithForEach = (input, callback) => {
+const removeWithForEach = (input, removeOne) => {
   // Solution code here...
+  input.forEach((element, index, array) => {
+    removeOne(element, array);
+  })
+  return input;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -139,6 +163,12 @@ const removeWithForEach = (input, callback) => {
 
 const removeWithAnon = input => {
   // Solution code here...
+  input.forEach((element, index, array) => {
+    if (element % 3 === 2) {
+      array.pop();
+    }
+  })
+  return input;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -160,6 +190,13 @@ const removeWithAnon = input => {
 // ------------------------------------------------------------------------------------------------
 
 const createList = availableItems => {
+  const availableList = [];
+  availableItems.forEach((element) => {
+    if (element.available === true) {
+      availableList.push(element.name);
+    }
+  })
+  return availableList;
   // Solution code here...
 };
 
@@ -179,6 +216,16 @@ const createList = availableItems => {
 
 const fizzbuzz = arr => {
   // Solution code here...
+  arr.forEach((element, index) => {
+    if (element % 3 === 0 && element % 5 !== 0) {
+      arr.splice(index, 1, 'Fizz');
+    } else if (element % 5 === 0 && element % 3 !== 0) {
+      arr.splice(index, 1, 'Buzz');
+    } else if (element % 3 === 0 && element % 5 === 0) {
+      arr.splice(index, 1, 'Fizz Buzz');
+    }
+  })
+  return arr;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -275,12 +322,26 @@ describe('Testing challenge 8', () => {
 });
 
 describe('Testing challenge 9', () => {
-  const inventory = [
-    { name: 'apples', available: true },
-    { name: 'pears', available: true },
-    { name: 'oranges', available: false },
-    { name: 'bananas', available: true },
-    { name: 'blueberries', available: false }
+  const inventory = [{
+      name: 'apples',
+      available: true
+    },
+    {
+      name: 'pears',
+      available: true
+    },
+    {
+      name: 'oranges',
+      available: false
+    },
+    {
+      name: 'bananas',
+      available: true
+    },
+    {
+      name: 'blueberries',
+      available: false
+    }
   ];
 
   test('It should only add the available items to the list', () => {
