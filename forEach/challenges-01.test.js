@@ -144,7 +144,9 @@ const removeElements = (input, removeOne) => {
 
 const removeWithForEach = (input, removeOne) => {
   // Solution code here...
-  input.forEach(removeOne(input.length, input));
+  input.forEach((element, index, array) => {
+    removeOne(element, array);
+  })
   return input;
 };
 
