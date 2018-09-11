@@ -163,6 +163,12 @@ const removeWithForEach = (input, removeOne) => {
 
 const removeWithAnon = input => {
   // Solution code here...
+  input.forEach((element, index, array) => {
+    if (element % 3 === 2) {
+      array.pop();
+    }
+  })
+  return input;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -184,6 +190,13 @@ const removeWithAnon = input => {
 // ------------------------------------------------------------------------------------------------
 
 const createList = availableItems => {
+  const availableList = [];
+  availableItems.forEach((element) => {
+    if (element.available === true) {
+      availableList.push(element.name);
+    }
+  })
+  return availableList;
   // Solution code here...
 };
 
