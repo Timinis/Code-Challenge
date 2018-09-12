@@ -46,9 +46,7 @@ const appendFirstToLast = list => list.push(list[0]);
 // console.log(a) // { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 // ------------------------------------------------------------------------------------------------
 
-const addBirthYearProperty = (obj, year) => {
-  // Solution code here...
-};
+const addBirthYearProperty = (obj, year) => (obj.yearBorn = year);
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 4
@@ -67,7 +65,7 @@ const addBirthYearProperty = (obj, year) => {
 // ------------------------------------------------------------------------------------------------
 
 const setStatusAsAuthor = people => {
-  // Solution code here...
+  people.forEach(element => (element.isAuthor = true));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -87,9 +85,7 @@ const setStatusAsAuthor = people => {
 // console.log(a) // [1, 2, 3, 4]
 // ------------------------------------------------------------------------------------------------
 
-const append = (list1, list2) => {
-  // Solution code here...
-};
+const append = (list1, list2) => list2.forEach(element => list1.push(element));
 
 // ------------------------------------------------------------------------------------------------
 // TESTS
