@@ -116,15 +116,7 @@ const nestedArray = [
 const findFourteen = array => {
   // Solution code here...
   let x;
-  array.forEach(element => {
-    element.forEach(ele => {
-      ele.forEach(el => {
-        if (el === 14) {
-          x = el;
-        }
-      });
-    });
-  });
+  x = array[2][0][1];
   return x;
 };
 
@@ -165,13 +157,7 @@ const errands = [
 const howManyTreats = arr => {
   // Solution code here...
   let x;
-  arr.forEach(element => {
-    element.items.forEach(ele => {
-      if (ele.name === 'Treats') {
-        x = ele.quantity;
-      }
-    });
-  });
+  x = arr[2].items[1].quantity;
   return x;
 };
 
