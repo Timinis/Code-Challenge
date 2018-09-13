@@ -117,11 +117,8 @@ const findFourteen = array => {
   // Solution code here...
   let x;
   array.forEach(element => {
-    console.log(element);
     element.forEach(ele => {
-      console.log(ele);
       ele.forEach(el => {
-        console.log(el);
         if (el === 14) {
           x = el;
         }
@@ -198,6 +195,13 @@ const howManyTreats = arr => {
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+  let didHit;
+  if (board[row][col] === '#') {
+    didHit = 'hit';
+  } else {
+    didHit = 'miss';
+  }
+  return didHit;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -212,6 +216,13 @@ const battleship = (board, row, col) => {
 
 const calculateProduct = numbers => {
   // Solution code here...
+  let x = 1;
+  numbers.forEach(element => {
+    element.forEach(ele => {
+      x *= ele;
+    });
+  });
+  return x;
 };
 
 // ------------------------------------------------------------------------------------------------
