@@ -90,10 +90,10 @@ const salesData = (hours, data) => {
 const giveValentines = list => {
   // Solution code here...
   const valMsg = [];
-  for (let i = 0; i < list.length - 1; i++) {
-    for (let j = i + 1; i < list.length; i++) {
+  for (let i = 0; i < list.length; i++) {
+    for (let j = 0; j < list.length; j++) {
       if (list[i] !== list[j]) {
-        valMsg.push(`${i} gives a Valentine to ${j}`);
+        valMsg.push(`${list[i]} gives a Valentine to ${list[j]}.`);
       }
     }
   }
