@@ -115,6 +115,20 @@ const nestedArray = [
 
 const findFourteen = array => {
   // Solution code here...
+  let x;
+  array.forEach(element => {
+    console.log(element);
+    element.forEach(ele => {
+      console.log(ele);
+      ele.forEach(el => {
+        console.log(el);
+        if (el === 14) {
+          x = el;
+        }
+      });
+    });
+  });
+  return x;
 };
 
 // ------------------------------------------------------------------------------------------------
