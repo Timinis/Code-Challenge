@@ -275,6 +275,20 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = weather => {
   // Solution code here...
+  const compareArray = [];
+  weather.forEach(element => {
+    let totalWeekTemp = 0;
+    let totalCounter = 0;
+    element.forEach(el => {
+      totalWeekTemp += el;
+      totalCounter++;
+    });
+    compareArray.push(Math.floor(totalWeekTemp / totalCounter));
+  });
+  compareArray.sort(function(a, b) {
+    return a - b;
+  });
+  return compareArray[0];
 };
 
 // ------------------------------------------------------------------------------------------------
