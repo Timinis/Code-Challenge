@@ -150,7 +150,14 @@ For example:
 
 const removeEvenValues = arr => {
   // Solution code here...
-  return arr.filter(element => element % 2 !== 0);
+  let i = 0;
+  while (i < arr.length) {
+    if (arr[i] % 2 === 0) {
+      arr.splice(i, 1);
+      return removeEvenValues;
+    }
+    i++;
+  }
 };
 /*------------------------------------------------------------------------
 CHALLENGE 8
