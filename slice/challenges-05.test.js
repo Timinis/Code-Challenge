@@ -150,11 +150,13 @@ For example:
 
 const removeEvenValues = arr => {
   // Solution code here...
+  console.log(arr);
   let i = 0;
   while (i < arr.length) {
     if (arr[i] % 2 === 0) {
       arr.splice(i, 1);
-      return removeEvenValues;
+      console.log(arr);
+      return removeEvenValues(arr);
     }
     i++;
   }
