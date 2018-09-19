@@ -70,6 +70,9 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 
 const evenOdd = input => {
   // Solution code here...
+  return input.map(
+    element => (isNaN(element) ? 'N/A' : element % 2 ? 'odd' : 'even')
+  );
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -113,6 +116,7 @@ const snorlaxAbilities = {
 
 const extractAbilities = abilities => {
   // Solution code here...
+  return abilities.map(element => element.ability.name);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -160,6 +164,13 @@ const snorlaxStats = {
 
 const extractStats = stats => {
   // Solution code here...
+  const abilityObj = (name, total) => ({
+    name,
+    total
+  });
+  return stats.map(element =>
+    abilityObj(element.stat.name, element.baseStat + element.effort)
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
