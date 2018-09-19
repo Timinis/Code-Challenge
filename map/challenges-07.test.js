@@ -12,6 +12,11 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 
 const forLoopTwoToThe = input => {
   // Solution code here...
+  let newArr = [];
+  for (let i = 0; i < input.length; i++) {
+    newArr.push(Math.pow(2, input[i]));
+  }
+  return newArr;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -22,6 +27,9 @@ Write a function named forEachTwoToThe that produces the same output as your for
 
 const forEachTwoToThe = input => {
   // Solution code here...
+  let newArr = [];
+  input.forEach(element => newArr.push(Math.pow(2, element)));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -32,6 +40,7 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 
 const mapTwoToThe = input => {
   // Solution code here...
+  return input.map(element => Math.pow(2, element));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +55,7 @@ For example: charCode(['h','i']) returns [104, 105].
 
 const charCode = input => {
   // Solution code here...
+  return input.map(element => element.charCodeAt(0));
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -60,6 +70,9 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 
 const evenOdd = input => {
   // Solution code here...
+  return input.map(
+    element => (isNaN(element) ? 'N/A' : element % 2 ? 'odd' : 'even')
+  );
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -103,6 +116,7 @@ const snorlaxAbilities = {
 
 const extractAbilities = abilities => {
   // Solution code here...
+  return abilities.map(element => element.ability.name);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -150,6 +164,13 @@ const snorlaxStats = {
 
 const extractStats = stats => {
   // Solution code here...
+  const abilityObj = (name, total) => ({
+    name,
+    total
+  });
+  return stats.map(element =>
+    abilityObj(element.stat.name, element.baseStat + element.effort)
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
