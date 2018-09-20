@@ -89,6 +89,7 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (input, minBaseStat) => {
   // Solution code here...
+  return input.filter(element => element.baseStat > minBaseStat);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -101,6 +102,9 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (input, minBaseStat) => {
   // Solution code here...
+  return input
+    .filter(element => element.baseStat > minBaseStat)
+    .map(element => element.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,6 +158,7 @@ const characters = [
 
 const getCharactersWithoutChildren = input => {
   // Solution code here...
+  return input.filter(element => element.children === undefined);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,6 +171,9 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = input => {
   // Solution code here...
+  return input
+    .filter(element => typeof element === 'number')
+    .map(element => (element % 2 ? 'odd' : 'even'));
 };
 
 /* ------------------------------------------------------------------------------------------------
